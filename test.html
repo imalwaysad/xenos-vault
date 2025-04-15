@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Xenos Vault</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    overflow: hidden;
+    color: #fff;
+}
+
+#xenos-vault {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    z-index: 2;
+}
+
+.dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.tab-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+}
+
+.tab {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+</style>
+</head>
+<body>
+    <div id="xenos-vault">Xenos Vault</div>
+
+    <div class="tab-container">
+        <a href="https://github.com" class="tab" target="_blank">GitHub</a>
+        <a href="https://google.com" class="tab" target="_blank">Google</a>
+    </div>
+
+    <script>
+        function createDot() {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dot.style.left = `${Math.random() * 100}vw`;
+            dot.style.top = `${Math.random() * 100}vh`;
+            document.body.appendChild(dot);
+
+            // Make dots disappear after a while
+            setTimeout(() => {
+                dot.remove();
+            }, 5000); // Remove after 5 seconds
+        }
+
+        setInterval(createDot, 200); // Create a dot every 200ms
+    </script>
+</body>
+</html>
